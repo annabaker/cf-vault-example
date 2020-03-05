@@ -11,7 +11,7 @@ RUN mvn clean package
 FROM openjdk:8-jre-alpine3.9
  
 # copy only the artifacts we need from the first stage and discard the rest
-COPY --from=MAVEN_BUILD /cf-vault-example/target/java-client-example-1.0-SNAPSHOT.jar /cf-vault-example.jar
+COPY --from=MAVEN_BUILD */target/java-client-example-1.0-SNAPSHOT.jar /cf-vault-example.jar
  
 # set the startup command to execute the jar
 CMD ["java", "-jar", "/demo.jar"]
