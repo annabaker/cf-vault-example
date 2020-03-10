@@ -8,25 +8,15 @@ import com.lambdaworks.redis.RedisURI;
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
-       RedisConnection connection = connectToRedis();
-
-        System.out.println("Connected to Redis!");
-
-        connection.close();
-        //redisClient.shutdown();
-    }
-
     public static RedisConnection connectToRedis() {
 
         String password = System.getenv("password");
 
-        //String password = "testpassword123";
-
         RedisClient redisClient = new RedisClient(
                 RedisURI.create("redis://" + password + "@192.81.218.202:6379"));
         RedisConnection<String, String> connection = redisClient.connect();
+
+        System.out.println("Connected to Redis!!");
 
         return connection;
     }
