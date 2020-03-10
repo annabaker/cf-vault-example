@@ -22,6 +22,8 @@ public class App
 
         String password = System.getenv("password");
 
+        //String password = "testpassword123";
+
         RedisClient redisClient = new RedisClient(
                 RedisURI.create("redis://" + password + "@192.81.218.202:6379"));
         RedisConnection<String, String> connection = redisClient.connect();
