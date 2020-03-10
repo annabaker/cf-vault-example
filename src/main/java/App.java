@@ -11,9 +11,10 @@ public class App
     public static void main( String[] args )
     {
        // String username = System.getenv("$username");
-       // String password = System.getenv("$password");
+        String password = System.getenv("password");
+        System.out.println("PASSWORD:" + password);
 
-        RedisConnection connection = connectToRedis();
+       RedisConnection connection = connectToRedis();
 
         System.out.println("Connected to Redis");
 
