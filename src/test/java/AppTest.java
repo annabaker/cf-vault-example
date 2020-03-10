@@ -1,5 +1,4 @@
-package io.vaultproject.javaclientexample;
-
+import com.lambdaworks.redis.RedisConnection;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -33,6 +32,10 @@ public class AppTest
      */
     public void testApp()
     {
-        assertTrue( true );
+        App demoApp = new App();
+        RedisConnection connection = demoApp.connectToRedis();
+        connection.set("key1", "value1");
+        System.out.println(connection.get("key1"));
+        assertTrue(connection.get("key1").equals("value1"));
     }
 }
