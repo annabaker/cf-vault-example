@@ -14,7 +14,7 @@ public class App
 
         RedisClient redisClient = new RedisClient(
                // RedisURI.create("redis://" + password + "@my-redis-db-host:6379"));
-                RedisURI.create("redis://localhost/"));
+                RedisURI.create("redis://my-redis-db-host/"));
         RedisConnection<String, String> connection = redisClient.connect();
 
         System.out.println("Connected to Redis!!");
