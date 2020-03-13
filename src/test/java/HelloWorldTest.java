@@ -4,9 +4,9 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * Unit test for simple App.
+ * Unit test for HelloWorld app that tests if we can write KV pairs to the Redis database.
  */
-public class AppTest 
+public class HelloWorldTest
     extends TestCase
 {
     /**
@@ -14,7 +14,7 @@ public class AppTest
      *
      * @param testName name of the test case
      */
-    public AppTest( String testName )
+    public HelloWorldTest(String testName )
     {
         super( testName );
     }
@@ -24,7 +24,7 @@ public class AppTest
      */
     public static Test suite()
     {
-        return new TestSuite( AppTest.class );
+        return new TestSuite( HelloWorldTest.class );
     }
 
     /**
@@ -32,7 +32,7 @@ public class AppTest
      */
     public void testApp()
     {
-        App demoApp = new App();
+        HelloWorld demoApp = new HelloWorld();
         RedisConnection connection = demoApp.connectToRedis();
         connection.set("key1", "value1");
         assertTrue(connection.get("key1").equals("value1"));

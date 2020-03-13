@@ -3,23 +3,21 @@ import com.lambdaworks.redis.RedisConnection;
 import com.lambdaworks.redis.RedisURI;
 
 /**
- * Hello world from Vault!
+ * Simple Hello World application to test using Vault secrets from within a Codefresh pipeline
  *
  */
-public class App 
+public class HelloWorld
 {
     public static RedisConnection connectToRedis() {
 
         String password = System.getenv("password");
         String host = System.getProperty("server.host");
 
-        System.out.println(host);
-
         RedisClient redisClient = new RedisClient(
-                RedisURI.create("redis://" + password + "@my-redis-db-host:6379"));
+                RedisURI.create("redis://" + password + "@" + host + ":6379"));
         RedisConnection<String, String> connection = redisClient.connect();
 
-        System.out.println("Connected to Redis!!");
+        System.out.println("Connected to Redis!");
 
         return connection;
     }
