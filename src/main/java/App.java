@@ -11,7 +11,7 @@ public class App
     public static RedisConnection connectToRedis() {
 
         String password = System.getenv("password");
-        String host = System.getenv("server.host");
+        String host = System.getPropery("server.host");
 
         System.out.println(host);
 
