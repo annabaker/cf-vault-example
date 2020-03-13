@@ -13,8 +13,7 @@ public class App
         String password = System.getenv("password");
 
         RedisClient redisClient = new RedisClient(
-               // RedisURI.create("redis://" + password + "@my-redis-db-host:6379"));
-                RedisURI.create("redis://my-redis-db-host/"));
+                RedisURI.create("redis://" + password + "@my-redis-db-host:6379"));
         RedisConnection<String, String> connection = redisClient.connect();
 
         System.out.println("Connected to Redis!!");
